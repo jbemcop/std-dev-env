@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "jbemcop-fedora20-base"
+  config.vm.box_check_update = false
+
+  config.vm.synced_folder "../shared_data", "/shared_data"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = "2048"
+    vb.customize ["modifyvm", :id, "--vram", "24"]
+  end
+
+end
