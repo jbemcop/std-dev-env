@@ -39,13 +39,21 @@
   ],
   "provisioners": [
     {
+      "type": "file",
+      "source": "../setup/config.properties",
+      "destination": "/home/vagrant/config.properties"
+    },
+    {
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "remote_path": "/home/vagrant/scripts",
       "scripts": [
         "scripts/fedora-20/fix-slow-dns.sh",
         "scripts/fedora-20/sshd.sh",
-        "scripts/fedora-20/gnome.sh",
         "scripts/fedora-20/vagrant.sh",
         "scripts/fedora-20/sudoers.sh",
+        "scripts/fedora-20/create-user.sh",
+        "scripts/fedora-20/gnome.sh",
+        "scripts/fedora-20/add-software.sh",
         "scripts/fedora-20/vmtools.sh",
         "scripts/fedora-20/cleanup.sh",
         "scripts/fedora-20/minimize.sh"
