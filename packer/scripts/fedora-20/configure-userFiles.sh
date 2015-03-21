@@ -4,22 +4,24 @@ echo "Reading config.properties..."
 . /home/vagrant/config.properties
 
 echo "Setting Maven Settings"
-mkdir ~$vm_user/.m2
-mv ~vagrant/settings.xml ~$vm_user/.m2/settings.xml
-chown -R $vm_user:$vm_user ~$vm_user/.m2
+mkdir /home/$vm_user/.m2
+mv /home/vagrant/settings.xml /home/$vm_user/.m2/settings.xml
+chown -R $vm_user:$vm_user /home/$vm_user/.m2
 
 echo "Extracting Maven Repos"
-for file in ~vagrant/filesToCopy/mavenRepos/*.zip
+mkdir -p /opt/maven/repo
+for file in /home/vagrant/filesToCopy/mavenRepos/*.zip
 do
   echo "Extracting Repo $file ..."
   unzip -u $file -d /opt/maven/repo/
 done
+chown -R $vm_user:$vm_user /opt/maven/repo
 
 echo "Moving Install Files"
-mkdir ~$vm_user/installers
-for file in ~vagrant/filesToCopy/productInstallers
+mkdir /home/$vm_user/installers
+for file in /home/vagrant/filesToCopy/productInstallers/*
 do
   echo "Relocating Installer $file ..."
-  cp $file ~$vm_user/installers
+  cp $file /home/$vm_user/installers
 done
-chown -R $vm_user:$vm_user ~$vm_user/installers
+chown -R $vm_user:$vm_user /home/$vm_user/installers

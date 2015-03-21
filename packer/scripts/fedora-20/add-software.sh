@@ -7,6 +7,7 @@ yum -y install java-1.7.0-openjdk
 ## Tools
 echo "Install Tools"
 yum -y install terminator
+yum -y install unzip
 
 ## Dev Tools
 echo "Installing Dev Tools"
