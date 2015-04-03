@@ -50,6 +50,11 @@
     },
     {
       "type": "file",
+      "source": "../setup/InstallJbds.xml",
+      "destination": "/home/vagrant/InstallJbds.xml"
+    },
+    {
+      "type": "file",
       "source": "../setup/filesToCopy",
       "destination": "/home/vagrant"
     },
@@ -63,8 +68,8 @@
         "scripts/fedora-20/sudoers.sh",
         "scripts/fedora-20/create-user.sh",
         "scripts/fedora-20/gnome.sh",
-        "scripts/fedora-20/add-software.sh",
         "scripts/fedora-20/configure-userFiles.sh",
+        "scripts/fedora-20/add-software.sh",
         "scripts/fedora-20/vmtools.sh",
         "scripts/fedora-20/cleanup.sh",
         "scripts/fedora-20/minimize.sh"

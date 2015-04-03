@@ -1,2 +1,4 @@
 builds/
 builds/*
+*.jar
+*.zip
